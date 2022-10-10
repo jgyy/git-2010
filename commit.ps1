@@ -1,13 +1,12 @@
+# powershell script that automate git push
 $LOOP=0
 
-while($true)
-{
+while($true) {
     $LOOP=$($LOOP + 1)
     $EPOCH=$(Get-Content epoch.txt)
 
-    if ($EPOCH -ge $([int](Get-Date -UFormat %s)))
-    {
-	    git push origin main
+    if ($EPOCH -ge $([int](Get-Date -UFormat %s))) {
+	git push origin main
         Write-Output "Do not automate push in the future!"
         exit
     }
@@ -19,8 +18,7 @@ while($true)
     git add .
     git commit -m $DATE --date $DATE
 
-    if ($LOOP -ge 100)
-    {
+    if ($LOOP -ge 100) {
         git push origin main
         $LOOP=0
     }
