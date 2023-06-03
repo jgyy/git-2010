@@ -8,7 +8,7 @@ do
 
     if [ $EPOCH -ge $(date +%s) ]
     then
-	    git push origin main
+	git push origin main
         echo "Do not automate push in the future!"
         exit
     fi
